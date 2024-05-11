@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+{% include 'home.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+</head>
+<body>
+{% block content%}
+<div class="div" >
+    <div class="row" >
+        <div class=" col-sm-6 col-md-5 col-xl-4 mt-5 ms-5" >
+            <img src="{{m.image.url}}" alt="" height="350px" width="426px">
+        </div>
+        <div class=" col-sm-6 mt-5 col-md-5 ms-5">
+            <h3> <u>{{m.name}} ({{m.year}})</u></h3>
+            <h5 class="mt-4">{{m.desc}}</h5>
+            <a class="btn btn-success mt-3" href="{% url 'movieapp:update' m.id %}" >Update</a>
+            <a class="btn btn-success mt-3 ms-4" href="{% url 'movieapp:delete' m.id %}" >Delete</a>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>

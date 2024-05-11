@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% include 'home.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+</head>
+<body>
+{% block content%}
+<div class="container" style="text-align:center">
+<h2> Add Movie</h2>
+<form  method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" >
+    </form>
+    </div>
+{% endblock %}
+</body>
+</html>

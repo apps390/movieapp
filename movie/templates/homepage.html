@@ -1,0 +1,21 @@
+{% load static %}
+{% include 'home.html' %}
+<link rel="stylesheet" href="{% static 'style/style.css' %}">
+{% block content%}
+<div class="container">
+ <div class="row">
+  {% for i in srk %}
+   <div class=" col col-xl-3 col-sm-6 col-xs-1 mt-5">
+<div class="card" style="width: 20rem; height:310px">
+  <img src="{{i.image.url}}" class="card-img-top" height="200px" width="150px">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}({{i.year}})</h5>
+    <a  class="btn btn-primary" href="{% url 'movieapp:detail' i.id %}">More Details</a>
+  </div>
+</div>
+     </div>
+ {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}
